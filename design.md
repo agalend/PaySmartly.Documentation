@@ -34,7 +34,7 @@ I have initially investigated 3 different approaches:
 Reading the task I cannot see a hard requirement for any particular backend components apart of service(s) which servers a static content (html/css/javascript). Calculations can be done entirely into the javascript since there is no persistance requirement. Furthermore, it can be used an advanced front-end framework, such as react native, in order to provide best UI experience to both, desktop and mobile clients. However, I reckon that such solution cannot be used for business needs, and therefore, I decided to create a SOA. Blazor is also an option.
 
 <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/agalend/PaySmartly.Documentation/blob/main/resources/design/front-end-architecture.png">
+<source media="(prefers-color-scheme: dark)" srcset="https://github.com/agalend/PaySmartly.Documentation/blob/main/resources/design/front-end-architecture.png">
 </picture>
 
 ## 3.2. monolithic SOA solution
