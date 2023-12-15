@@ -59,7 +59,7 @@ This is the summery of all 7 services:
 
    - api gateway -> plays role of reverse proxy and load balancer. It routes requests to the static content services, calculation services and archive services: [source code](https://github.com/agalend/PaySmartly.ApiGateway)
    - static content service -> serves the UI: [source code](https://github.com/agalend/PaySmartly.UI)
-   - calculations service -> calculates pay slips and store them into a database: [source code](https://github.com/agalend/PaySmartly.Calculations)
+   - calculations service -> calculates pay slips and store them into a database: [source code](https://github.com/agalend/PaySmartly.Calculations/tree/master/PaySmartly.Calculations)
    - archive service -> requests already calculated pay slip records from the database: [source code](https://github.com/agalend/PaySmartly.Archive)
    - persistence load balancer -> routes requests to many persistence services: [source code](https://github.com/agalend/PaySmartly.Persistence.LoadBalancer)
    - persistence service -> hides the complex database logic and act as an intermediate: [source code](https://github.com/agalend/PaySmartly.Persistence)
@@ -105,32 +105,86 @@ Persistence logic add, delete, and retrieves pay slip records. It deals with mon
 
 # 5. high availability
 
+These are the services that have multiple instances:
+
+   - 2 static content services
+   - 2 calculations services
+   - 2 archive services
+   - 3 persistence services
+
+It is extremely easy to increase the number of those service instances, if you want.
+
+There is:
+
+   - 1 legislation service -> I set up only one so that I can show you a single point of failure service. If this service crash then the entire 
+   calculator page will be unresponsive. 
+   - 1 API Gateway -> while this can be considered as a single point of failure service too, we can mitigated this problem by introducing a leading api gateway instance and 1 or more failover gateway instances. 
+   - 1 load balancer instance -> same as api gateway
+
+While we can extend the existing architecture to reflect above limitations, 1 big issue remains - we can set the number of services only on design phase, not at runtime. This has many limitations such as:
+
+   - if all service instances break then part of the functionality will stop working
+   - if the system encounters intensive load then it can become unresponsive
+   - the system will consume resources (money in the cloud) during the quiet hours  
+
+Above limitations can be mitigated if we introduce a container orchestrator, such as K8S. I have created a docker image for each and every service, and therefore, the entire solution is prepared for introducing the container orchestrator.
+
 # 6. Api documentation
 
-# 7. Testing
+There are OpenApi support and swagger interface for:
 
-## 7.1 unit tests
+   - calculations rest api:
 
-## 7.2 integration tests
+   <img src="https://github.com/agalend/PaySmartly.Documentation/blob/main/resources/design/swagger-calculations.png">
 
-## 7.3 performance tests
+   - archive rest api
 
-## 7.4 load tests
+   <img src="https://github.com/agalend/PaySmartly.Documentation/blob/main/resources/design/swagger-archive.png">
 
-## 7.5 stress tests
+# 7. Security
 
-## 7.6 end-to-end tests
+## 7.1 https
 
-### 7.7.1 automatic tests
+## 7.2 OAuth 2.0
 
-### 7.7.2 manual tests
+# 8. Support
 
-# 8. CI/CD
+# 9. Testing
 
-# 9. Security
+Testing is an critical part of any production ready system, however, due to the time limitation I was not able to create all necessary tests:
 
-## 9.1 https
+## 9.1 unit tests
 
-## 9.2 OAuth 2.0
+I have created tests for the calculations service, you can see the implementation here: [source code](https://github.com/agalend/PaySmartly.Calculations/tree/master/PaySmartly.Calculations.Tests)
 
-# 10. Support
+## 9.2 integration tests
+
+TBD, one possible solution can be using of github actions
+
+## 9.3 performance tests
+
+TBD
+
+## 9.4 load tests
+
+TBD
+
+## 9.5 stress tests
+
+TBD
+
+## 9.6 end-to-end tests
+
+TBD
+
+### 9.9.1 automatic tests
+
+TBD
+
+### 9.9.2 manual tests
+
+TBD
+
+# 10. CI/CD
+
+due to the time limitation I was not able to create a CI/CD pipeline. One possible option is to use github actions in conjunction with AWS/Azure building and deploying services.
