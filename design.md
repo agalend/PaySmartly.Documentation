@@ -27,17 +27,25 @@ First, I want to notice that I have no payroll experience whatsoever. As you can
 
 # 3. Architecture
 
-I have initially investigated 3 different approaches: 
+I am going to present you 3 different possible architectures. Keep in mind that I am going to implement the third one, microservices architecture. In addition, I will present you horizontally scaled backends in all 3 approaches. 
 
 ## 3.1. pure front-end solution
 
-Reading the task I cannot see a hard requirement for any particular backend components apart of service(s) which servers a static content (html/css/javascript). Calculations can be done entirely into the javascript since there is no persistance requirement. Furthermore, it can be used an advanced front-end framework, such as react native, in order to provide best UI experience to both, desktop and mobile clients. Blazor can be considered too:
+Reading the task I cannot see a hard requirement for any particular backend components apart of service(s) which servers a static content (html/css/javascript). Calculations can be done entirely into the javascript since there is no persistance requirement. Furthermore, it can be used an advanced front-end framework, such as react native, in order to provide best UI experience to both, browser, mobile and desktop clients. Blazor can be considered too:
 
 <img src="https://github.com/agalend/PaySmartly.Documentation/blob/main/resources/design/front-end-architecture.png">
 
-## 3.2. monolithic SOA solution
+## 3.2. three tier solution
+
+If we want to persist some data then we cannot use the previous solution. One option is to use the old, well-known three tier architecture. If developers keep a good code quality and do not introduce a complex state then this solution can even scale out:
+
+<img src="https://github.com/agalend/PaySmartly.Documentation/blob/main/resources/design/3-tier-architecture.png">
 
 ## 3.3. microservices solution
+
+Third option is to create a modern, microservices architecture:
+
+<img src="https://github.com/agalend/PaySmartly.Documentation/blob/main/resources/design/microservices-architecture.png">
 
 # 4. Microservices solution
 
