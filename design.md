@@ -31,7 +31,7 @@ I am going to present you 3 different possible architectures. Keep in mind that 
 
 ## 3.1. pure front-end solution
 
-Reading the task I cannot see a hard requirement for any particular backend components apart of service(s) which servers a static content (html/css/javascript). Calculations can be done entirely into the javascript since there is no persistance requirement. Furthermore, it can be used an advanced front-end framework, such as react native, in order to provide best UI experience to both, browser, mobile and desktop clients. Blazor can be considered too:
+Reading the task I cannot see a hard requirement for any particular backend components apart of service(s) which servers a static content (html/css/javascript). Calculations can be done entirely into the javascript since there is no persistence requirement. Furthermore, it can be used an advanced front-end framework, such as react native, in order to provide best UI experience to both, browser, mobile and desktop clients. Blazor can be considered too:
 
 <img src="https://github.com/agalend/PaySmartly.Documentation/blob/main/resources/design/front-end-architecture.png">
 
@@ -49,38 +49,68 @@ Third option is to create a modern, microservices architecture:
 
 # 4. Microservices solution
 
+We are going to implement 7 different services in order to divide the complex logic into more granular micro services. The aim here is to be able to achieve the following goals:
+
+   - horizontal scaling
+   - fault tolerance
+   - high availability
+
+This is the summery of all 7 services:
+
+   - api gateway -> will play role of reverse proxy and load balancer. It will route requests to the static content services, calculation services and archive services, [source code](https://github.com/agalend/PaySmartly.ApiGateway)
+   - static content service -> will serve the UI, [source code](https://github.com/agalend/PaySmartly.UI)
+   - calculations service -> will calculate pay slips and store them into a database,[source code](https://github.com/agalend/PaySmartly.Calculations)
+   - archive service -> will request already calculated pay slip records from the database, [source code](https://github.com/agalend/PaySmartly.Archive)
+   - persistence load balancer -> will route requests to many persistence services, [source code](https://github.com/agalend/PaySmartly.Persistence.LoadBalancer)
+   - persistence service -> will hide the complex database logic and act as an intermediate, [source code](https://github.com/agalend/PaySmartly.Persistence)
+   - legislation service -> will incorporate the complex legislation logic, such as serving a taxable income table, [source code](https://github.com/agalend/PaySmartly.Legislation)
+
 ## 4.1 technology stack
 
-## 4.2 teams
+I am going to use the following technologies:
 
-## 4.3 horizontal scaling
+<img src="https://github.com/agalend/PaySmartly.Documentation/blob/main/resources/design/technology-stack.png">
 
-# 5. Api documentation
+## 4.2 business logic
 
-# 6. Testing
+### 4.2.1 UI
 
-## 6.1 unit tests
+### 4.2.2 Calculations
 
-## 6.2 integration tests
+### 4.2.3 Archive
 
-## 6.3 performance tests
+### 4.2.4 Legislation
 
-## 6.4 load tests
+### 4.2.5 Persistence
 
-## 6.5 stress tests
+# 5. high availability
 
-## 6.6 end-to-end tests
+# 6. Api documentation
 
-### 6.6.1 automatic tests
+# 7. Testing
 
-### 6.6.2 manual tests
+## 7.1 unit tests
 
-# 7. CI/CD
+## 7.2 integration tests
 
-# 8. Security
+## 7.3 performance tests
 
-## 8.1 https
+## 7.4 load tests
 
-## 8.2 OAuth 2.0
+## 7.5 stress tests
 
-# 9. Support
+## 7.6 end-to-end tests
+
+### 7.7.1 automatic tests
+
+### 7.7.2 manual tests
+
+# 8. CI/CD
+
+# 9. Security
+
+## 9.1 https
+
+## 9.2 OAuth 2.0
+
+# 10. Support
