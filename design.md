@@ -27,7 +27,7 @@ First, I want to notice that I have no payroll experience whatsoever. As you can
 
 # 3. Architecture
 
-I am going to present you 3 different possible architectures. Keep in mind that I am going to implement the third one, microservices architecture. In addition, I will present you horizontally scaled backends in all 3 approaches. 
+I am going to present you 3 different possible architectures. Keep in mind that I implemented the third one, microservices architecture. In addition, I will present you horizontally scaled backends in all 3 approaches. 
 
 ## 3.1. pure front-end solution
 
@@ -49,7 +49,7 @@ Third option is to create a modern, microservices architecture:
 
 # 4. Microservices solution
 
-We are going to implement 7 different services in order to divide the complex logic into more granular micro services. The aim here is to be able to achieve the following goals:
+I implemented 7 different services in order to divide the complex logic into more granular micro services. The aim here is to be able to achieve the following goals:
 
    - horizontal scaling
    - fault tolerance
@@ -57,31 +57,51 @@ We are going to implement 7 different services in order to divide the complex lo
 
 This is the summery of all 7 services:
 
-   - api gateway -> will play role of reverse proxy and load balancer. It will route requests to the static content services, calculation services and archive services, [source code](https://github.com/agalend/PaySmartly.ApiGateway)
-   - static content service -> will serve the UI, [source code](https://github.com/agalend/PaySmartly.UI)
-   - calculations service -> will calculate pay slips and store them into a database,[source code](https://github.com/agalend/PaySmartly.Calculations)
-   - archive service -> will request already calculated pay slip records from the database, [source code](https://github.com/agalend/PaySmartly.Archive)
-   - persistence load balancer -> will route requests to many persistence services, [source code](https://github.com/agalend/PaySmartly.Persistence.LoadBalancer)
-   - persistence service -> will hide the complex database logic and act as an intermediate, [source code](https://github.com/agalend/PaySmartly.Persistence)
-   - legislation service -> will incorporate the complex legislation logic, such as serving a taxable income table, [source code](https://github.com/agalend/PaySmartly.Legislation)
+   - api gateway -> plays role of reverse proxy and load balancer. It routes requests to the static content services, calculation services and archive services: [source code](https://github.com/agalend/PaySmartly.ApiGateway)
+   - static content service -> serves the UI: [source code](https://github.com/agalend/PaySmartly.UI)
+   - calculations service -> calculates pay slips and store them into a database: [source code](https://github.com/agalend/PaySmartly.Calculations)
+   - archive service -> requests already calculated pay slip records from the database: [source code](https://github.com/agalend/PaySmartly.Archive)
+   - persistence load balancer -> routes requests to many persistence services: [source code](https://github.com/agalend/PaySmartly.Persistence.LoadBalancer)
+   - persistence service -> hides the complex database logic and act as an intermediate: [source code](https://github.com/agalend/PaySmartly.Persistence)
+   - legislation service -> incorporates the complex legislation logic, such as serving a taxable income table: [source code](https://github.com/agalend/PaySmartly.Legislation)
 
 ## 4.1 technology stack
 
-I am going to use the following technologies:
+I use the following technologies:
 
 <img src="https://github.com/agalend/PaySmartly.Documentation/blob/main/resources/design/technology-stack.png">
 
 ## 4.2 business logic
 
+There are 5 modules that contain business specific logic:
+
 ### 4.2.1 UI
+
+UI is separated into 2 pages
+
+   - calculator -> You can fill a pay slip data and get calculated pay slip:
+
+   <img src="https://github.com/agalend/PaySmartly.Documentation/blob/main/resources/design/calculator-page.png">
+
+   - history -> you can get pay slip records filtered by name, super rate and annual salary. I have also implemented pagination, and therefore, user can see next and previous 10 rows
+
+   <img src="https://github.com/agalend/PaySmartly.Documentation/blob/main/resources/design/history-page.png">
 
 ### 4.2.2 Calculations
 
+Calculations logic calculates the pay slip based on a given data. It has a dependency on the legislation service and retrieves the taxable income table. Calculations service also persist each and every pay slip, and therefore, it has dependency on the persistence service as well.
+
 ### 4.2.3 Archive
+
+Archive logic retrieves pay slip records, and therefore, it has dependency on the persistence service as well.
 
 ### 4.2.4 Legislation
 
+Legislation logic provides the taxable income table.
+
 ### 4.2.5 Persistence
+
+Persistence logic add, delete, and retrieves pay slip records. It deals with mongo specific API.
 
 # 5. high availability
 
