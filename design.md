@@ -4,33 +4,26 @@
 - Motivation
 - Assumptions
 - Architecture
-   pure front-end solution
-   three tier solution
-   microservices solution
+   * pure front-end solution
+   * three tier solution
+   * microservices solution
 - Microservices solution
-   technology stack
-   business logic
-      UI
-      Calculations
-      Archive
-      Legislation
-      Persistence
+   * technology stack
+   * business logic
 - High availability
 - API documentation
 - Security
-   https
-   OAuth 2.0
+   * https
+   * OAuth 2.0
 - Support
 - CI/CD
 - Testing
-   unit tests
-   integration tests
-   performance tests
-   load tests
-   stress tests
-   end-to-end tests
-      automatic tests
-      manual tests
+   * unit tests
+   * integration tests
+   * performance tests
+   * load tests
+   * stress tests
+   * end-to-end tests
 
 
 # 1. Motivation
