@@ -1,36 +1,36 @@
 
 # Table of Contents
 
-1. Motivation
-2. Assumptions
-3. Architecture
-   - pure front-end solution
-   - three tier solution
-   - microservices solution
-4. Microservices solution
-   - technology stack
-   - business logic
-      - UI
-      - Calculations
-      - Archive
-      - Legislation
-      - Persistence
-5. High availability
-6. API documentation
-7. Security
-   - https
-   - OAuth 2.0
-8. Support
-9. CI/CD
-10. Testing
-   - unit tests
-   - integration tests
-   - performance tests
-   - load tests
-   - stress tests
-   - end-to-end tests
-      - automatic tests
-      - manual tests
+Motivation
+Assumptions
+Architecture
+   pure front-end solution
+   three tier solution
+   microservices solution
+Microservices solution
+   technology stack
+   business logic
+      UI
+      Calculations
+      Archive
+      Legislation
+      Persistence
+High availability
+API documentation
+Security
+   https
+   OAuth 2.0
+Support
+CI/CD
+Testing
+   unit tests
+   integration tests
+   performance tests
+   load tests
+   stress tests
+   end-to-end tests
+      automatic tests
+      manual tests
 
 
 # 1. Motivation
