@@ -18,7 +18,7 @@ I have created a docker compose file in order to ease the testing procedure on y
 
 All code repositories are in GitHub: [repositories](https://github.com/agalend?tab=repositories) 
 
-# 3. Downloading the docker-compose.yml
+# 3. Download and run the docker-compose.yml
 
 You can clone, download or even copy/paste the docker-compose.yml on your local machine from [here](https://github.com/agalend/PaySmartly.Deployment/blob/main/docker-compose.yml)
 
@@ -40,6 +40,6 @@ check the docker containers' statuses once you have run the docker compose file:
 
 Open you browser and load http://localhost:9080
 
-then you can refer to [test](https://github.com/agalend/PaySmartly.Documentation/blob/main/how-to-test.md) 
+then you can refer to [how to test](https://github.com/agalend/PaySmartly.Documentation/blob/main/how-to-test.md) 
 
 
