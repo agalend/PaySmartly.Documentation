@@ -1,0 +1,36 @@
+# Table of Contents
+
+- Requirements
+- Code repositories
+- Download and run the docker-compose.yml
+- DockerHub
+- Docker container statuses
+
+# 1. Requirements
+
+I have created a docker compose file in order to ease the testing procedure on your local machine. You have to install:
+
+    - docker daemon, such as Docker Desktop
+    - set up a WSL 2 based engine, since all docker images are linux based
+
+# 2. Code repositories
+
+All code repositories are in GitHub: [repositories](https://github.com/agalend?tab=repositories) 
+
+# 3. Downloading the docker-compose.yml
+
+You can clone, download or even copy/paste the docker-compose.yml on your local machine from [here](https://github.com/agalend/PaySmartly.Deployment/blob/main/docker-compose.yml)
+
+Then you should execute the following command: `docker compose up --build`
+
+# 4. DockerHub
+
+All docker images are located [here](https://hub.docker.com/repositories/agalend)
+
+# 5. Docker containers' statuses
+
+check the docker containers' statuses once you have run the docker compose file:
+
+<img src="https://github.com/agalend/PaySmartly.Documentation/blob/main/resources/run/running-docker-containers.png">
+
+
