@@ -24,7 +24,7 @@ You can clone, download or even copy/paste the docker-compose.yml on your local 
 
 First ensure that the following local ports are free to use: [9080- 9091]
 
-Then you should execute the following command: `docker compose up --build`
+Then you should open a cmd, cd to the folder containing docker-compose.yml and execute the following command: `docker compose up --build`
 
 # 4. DockerHub
 
