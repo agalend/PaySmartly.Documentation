@@ -1,13 +1,13 @@
 
 # Table of Contents
 
-Motivation
-Assumptions
-Architecture
+- Motivation
+- Assumptions
+- Architecture
    pure front-end solution
    three tier solution
    microservices solution
-Microservices solution
+- Microservices solution
    technology stack
    business logic
       UI
@@ -15,14 +15,14 @@ Microservices solution
       Archive
       Legislation
       Persistence
-High availability
-API documentation
-Security
+- High availability
+- API documentation
+- Security
    https
    OAuth 2.0
-Support
-CI/CD
-Testing
+- Support
+- CI/CD
+- Testing
    unit tests
    integration tests
    performance tests
