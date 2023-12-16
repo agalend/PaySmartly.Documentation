@@ -57,13 +57,13 @@ I implemented 7 different services in order to divide the complex logic into mor
 
 This is the summery of all 7 services:
 
-   - api gateway -> plays role of reverse proxy and load balancer. It routes requests to the static content services, calculation services and archive services: [source code](https://github.com/agalend/PaySmartly.ApiGateway)
-   - static content service -> serves the UI: [source code](https://github.com/agalend/PaySmartly.UI)
    - calculations service -> calculates pay slips and store them into a database: [source code](https://github.com/agalend/PaySmartly.Calculations/tree/master/PaySmartly.Calculations)
    - archive service -> requests already calculated pay slip records from the database: [source code](https://github.com/agalend/PaySmartly.Archive)
-   - persistence load balancer -> routes requests to many persistence services: [source code](https://github.com/agalend/PaySmartly.Persistence.LoadBalancer)
    - persistence service -> hides the complex database logic and act as an intermediate: [source code](https://github.com/agalend/PaySmartly.Persistence)
+   - api gateway -> plays role of reverse proxy and load balancer. It routes requests to the static content services, calculation services and archive services: [source code](https://github.com/agalend/PaySmartly.ApiGateway)
+   - persistence load balancer -> routes requests to many persistence services: [source code](https://github.com/agalend/PaySmartly.Persistence.LoadBalancer)
    - legislation service -> incorporates the complex legislation logic, such as serving a taxable income table: [source code](https://github.com/agalend/PaySmartly.Legislation)
+   - static content service -> serves the UI: [source code](https://github.com/agalend/PaySmartly.UI)
 
 ## 4.1 technology stack
 
@@ -145,46 +145,58 @@ There are OpenApi support and swagger interface for:
 
 ## 7.1 https
 
+I have been using http in order to ease the development, however, https is the must protocol for production. It must be used between the client apps and the api gateway at least. If we use some kind of private network behind the api gateway than we can consider using http into it, however, each and every connection outside this private network must go through https.
+
 ## 7.2 OAuth 2.0
+
+I have not implemented any authentication and authorization, however, in most cases this is a must requirement for production. One possible solution is to use some auth provider which implement OAuth 2.0, such as auth0:
+
+<img src="https://github.com/agalend/PaySmartly.Documentation/blob/main/resources/design/security-architecture.png">
 
 # 8. Support
 
-# 9. Testing
+All .NET services, including the api gateway and persistence load balancer, have OpenTelemetry support. That way we can send metrics, traces and logs to a server, such as Prometheus, and visualize them using some tool, such as Grafana. I have implemented just console exporter:
+
+<img src="https://github.com/agalend/PaySmartly.Documentation/blob/main/resources/design/open-telemetry-console.png">
+
+# 9. CI/CD
+
+due to the time limitation I was not able to create a CI/CD pipeline. One possible option is to use github actions in order to build, test and deploy all services.
+
+# 10. Testing
 
 Testing is an critical part of any production ready system, however, due to the time limitation I was not able to create all necessary tests:
 
-## 9.1 unit tests
+## 10.1 unit tests
 
 I have created tests for the calculations service, you can see the implementation here: [source code](https://github.com/agalend/PaySmartly.Calculations/tree/master/PaySmartly.Calculations.Tests)
 
-## 9.2 integration tests
+I added a git hook as well: [source code](https://github.com/agalend/PaySmartly.Calculations/blob/master/git-hooks/pre-commit)
+
+## 10.2 integration tests
 
 TBD, one possible solution can be using of github actions
 
-## 9.3 performance tests
+## 10.3 performance tests
 
 TBD
 
-## 9.4 load tests
+## 10.4 load tests
 
 TBD
 
-## 9.5 stress tests
+## 10.5 stress tests
 
 TBD
 
-## 9.6 end-to-end tests
+## 10.6 end-to-end tests
 
 TBD
 
-### 9.9.1 automatic tests
+### 10.10.1 automatic tests
 
 TBD
 
-### 9.9.2 manual tests
+### 10.10.2 manual tests
 
 TBD
-
-# 10. CI/CD
-
-due to the time limitation I was not able to create a CI/CD pipeline. One possible option is to use github actions in conjunction with AWS/Azure building and deploying services.
