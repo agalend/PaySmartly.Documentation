@@ -23,7 +23,6 @@ You can request pay slip records following these steps (all inputs are required)
     - name -> you should fill first and last name
     - super rate -> fill the desired rate range, for example from 7 to 9
     - annual salary -> fill the desired salary range, for example from 60050 to 12000
-- then you should fill the 2 search inputs
 - then you should click on Request Data button
 - finally bellow table will be populated, if any records exist:
 
@@ -37,7 +36,7 @@ You can kill some service instance, such as calculation one. You should be able 
 
 However, you should still be able to retrieve pay slip records since history page do not request a calculations service instance at all.
 
-You can run one of the two calculations instances, then refresh in order to load the calculator page again and you should be able to perform pay slip calculations again. You can killing and running again calculations, archive and persistence instances. API Gateway, persistance load balancer and legislation instances are single point of failure right now.
+You can run one of the two calculations instances, then refresh in order to load the calculator page again and you should be able to perform pay slip calculations again. You can killing and running again calculations, archive and persistence instances in order to test the failover mechanism. API Gateway, persistance load balancer and legislation instances are single point of failure right now.
 
 # 3. Swagger
 
