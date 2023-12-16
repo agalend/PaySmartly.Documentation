@@ -149,7 +149,7 @@ I have been using http in order to ease the development, however, https is the m
 
 ## 7.2 OAuth 2.0
 
-I have not implemented any authentication and authorization, however, in most cases this is a must requirement for production. One possible solution is to use some auth provider which implement OAuth 2.0, such as auth0:
+I have not implemented any authentication and authorization, however, in most cases this is a must requirement for production. One possible solution is to use some auth provider which implements OAuth 2.0, such as auth0:
 
 <img src="https://github.com/agalend/PaySmartly.Documentation/blob/main/resources/design/security-architecture.png">
 
@@ -165,7 +165,7 @@ due to the time limitation I was not able to create a CI/CD pipeline. One possib
 
 # 10. Testing
 
-Testing is an critical part of any production ready system, however, due to the time limitation I was not able to create all necessary tests:
+Testing is a critical part of any production ready system, however, due to the time limitation I was not able to create all necessary tests:
 
 ## 10.1 unit tests
 
