@@ -1,6 +1,38 @@
 
 # Table of contents
 
+Motivation
+Assumptions
+Architecture
+   - pure front-end solution
+   - three tier solution
+   - microservices solution
+Microservices solution
+   - technology stack
+   - business logic
+      - UI
+      - Calculations
+      - Archive
+      - Legislation
+      - Persistence
+High availability
+API documentation
+Security
+   - https
+   - OAuth 2.0
+Support
+CI/CD
+Testing
+   - unit tests
+   - integration tests
+   - performance tests
+   - load tests
+   - stress tests
+   - end-to-end tests
+      - automatic tests
+      - manual tests
+
+
 # 1. Motivation
 
 This solution has one main purpose - it should show you how I think, approach a task and give you a basic overview of my technical skills. 
@@ -103,7 +135,7 @@ Legislation logic provides the taxable income table.
 
 Persistence logic add, delete, and retrieves pay slip records. It deals with mongo specific API.
 
-# 5. high availability
+# 5. High availability
 
 These are the services that have multiple instances:
 
@@ -129,7 +161,7 @@ While we can extend the existing architecture to reflect above limitations, 1 bi
 
 Above limitations can be mitigated if we introduce a container orchestrator, such as K8S. I have created a docker image for each and every service, and therefore, the entire solution is prepared for introducing the container orchestrator.
 
-# 6. Api documentation
+# 6. API documentation
 
 There are OpenApi support and swagger interface for:
 
@@ -169,7 +201,7 @@ Testing is a critical part of any production ready system, however, due to the t
 
 ## 10.1 unit tests
 
-I have created tests for the calculations service, you can see the implementation here: [source code](https://github.com/agalend/PaySmartly.Calculations/tree/master/PaySmartly.Calculations.Tests)
+I have created an initial set of tests for the calculations service, you can see the implementation here: [source code](https://github.com/agalend/PaySmartly.Calculations/tree/master/PaySmartly.Calculations.Tests)
 
 I added a git hook as well: [source code](https://github.com/agalend/PaySmartly.Calculations/blob/master/git-hooks/pre-commit)
 
