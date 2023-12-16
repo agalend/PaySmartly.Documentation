@@ -41,9 +41,9 @@ You can run one of the two calculations instances, then refresh in order to load
 
 # 3. Swagger
 
-    you can request calculations' swagger page: [http://localhost:9080/api/calculations/swagger/index.html](http://localhost:9080/api/calculations/swagger/index.html)
+you can request calculations' swagger page: [http://localhost:9080/api/calculations/swagger/index.html](http://localhost:9080/api/calculations/swagger/index.html)
 
-    you can request archive's swagger page: [http://localhost:9080/api/archive/swagger/index.html](http://localhost:9080/api/archive/swagger/index.html)
+you can request archive's swagger page: [http://localhost:9080/api/archive/swagger/index.html](http://localhost:9080/api/archive/swagger/index.html)
 
 
 
