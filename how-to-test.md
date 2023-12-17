@@ -30,7 +30,7 @@ You can request pay slip records following these steps (all inputs are required)
 
 # 3. Killing random services
 
-You can kill some service instance, such as calculation one. You should be able to perform pay slip calculation after killing it since I have set up 2 instances. If you kill the second one too then you will encounter error:
+You can kill some service instance, such as calculations one. You should be able to perform pay slip calculations after killing it since I have set up 2 instances. If you kill the second one too then you will encounter error:
 
 <img src="https://github.com/agalend/PaySmartly.Documentation/blob/main/resources/test/error-page.png">
 

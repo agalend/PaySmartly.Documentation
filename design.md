@@ -82,10 +82,10 @@ I implemented 7 different services in order to divide the complex logic into mor
 
 This is the summery of all 7 services:
 
-   - calculations service -> calculates pay slips and store them into a database: [source code](https://github.com/agalend/PaySmartly.Calculations/tree/master/PaySmartly.Calculations)
+   - calculations service -> calculates pay slips and store them into a database: [source code](https://github.com/agalend/PaySmartly.Calculations)
    - archive service -> requests already calculated pay slip records from the database: [source code](https://github.com/agalend/PaySmartly.Archive)
    - persistence service -> hides the complex database logic and act as an intermediate: [source code](https://github.com/agalend/PaySmartly.Persistence)
-   - api gateway -> plays role of reverse proxy and load balancer. It routes requests to the static content services, calculation services and archive services: [source code](https://github.com/agalend/PaySmartly.ApiGateway)
+   - api gateway -> plays role of reverse proxy and load balancer. It routes requests to the static content services, calculations services and archive services: [source code](https://github.com/agalend/PaySmartly.ApiGateway)
    - persistence load balancer -> routes requests to many persistence services: [source code](https://github.com/agalend/PaySmartly.Persistence.LoadBalancer)
    - legislation service -> incorporates the complex legislation logic, such as serving a taxable income table: [source code](https://github.com/agalend/PaySmartly.Legislation)
    - static content service -> serves the UI: [source code](https://github.com/agalend/PaySmartly.UI)

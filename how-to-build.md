@@ -14,10 +14,12 @@ I have crated a react app and added 2 additional dependencies: axios and react-b
 
 # 3. Run all services and test
 
-You can clone, build and run each and every service:
+First you should either instal mongodb locally or run a mongodb docker container exposing port 27017.
+
+Then you can clone, build and run each and every service:
 
    - legislation service -> incorporates the complex legislation logic, such as serving a taxable income table: [source code](https://github.com/agalend/PaySmartly.Legislation)
-   - calculations service -> calculates pay slips and store them into a database: [source code](https://github.com/agalend/PaySmartly.Calculations/tree/master/PaySmartly.Calculations)
+   - calculations service -> calculates pay slips and store them into a database: [source code](https://github.com/agalend/PaySmartly.Calculations)
    - archive service -> requests already calculated pay slip records from the database: [source code](https://github.com/agalend/PaySmartly.Archive)
    - persistence service -> hides the complex database logic and act as an intermediate: [source code](https://github.com/agalend/PaySmartly.Persistence)
    - static content service -> serves the UI: [source code](https://github.com/agalend/PaySmartly.UI)
