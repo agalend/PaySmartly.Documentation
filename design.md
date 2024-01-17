@@ -57,9 +57,9 @@ Alex Wong,01 March – 31 March,10000.00,2543.33,7456.67,1000.00
 
 As part of your solution:
 
-   • List any assumptions that you made in order to solve this problem.
-   • Provide instructions on how to run the application.
-   • Please include a simple web interface with input fields and display of the output
+   - List any assumptions that you made in order to solve this problem.
+   - Provide instructions on how to run the application.
+   - Please include a simple web interface with input fields and display of the output
 
 # 1. Motivation
 
