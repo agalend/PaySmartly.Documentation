@@ -49,9 +49,12 @@ For example, the payment in March for an employee with an annual salary of $60,0
 Example input/output:
 
 Input (first name, last name, annual salary, super rate (%), pay period):
+
 John,Smith,60050,9%,March
 Alex,Wong,120000,10%,March
+
 Output (name, pay period, gross income, income tax, net income, super):
+
 John Smith,01 March – 31 March,5004.17,919.58,4084.59,450.38
 Alex Wong,01 March – 31 March,10000.00,2543.33,7456.67,1000.00
 
